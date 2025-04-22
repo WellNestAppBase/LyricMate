@@ -1,0 +1,169 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@keyframes gradient-shift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animate-gradient-shift {
+  background-size: 200% 200%;
+  animation: gradient-shift 15s ease infinite;
+}
+
+@layer base {
+  :root {
+    /* Spotify-inspired theme based on Figma design */
+    --background: 0 0% 7%; /* #121212 */
+    --foreground: 0 0% 100%; /* #FFFFFF */
+
+    --card: 0 0% 16%; /* #282828 */
+    --card-foreground: 0 0% 100%; /* #FFFFFF */
+
+    --popover: 0 0% 16%; /* #282828 */
+    --popover-foreground: 0 0% 100%; /* #FFFFFF */
+
+    --primary: 142 72% 42%; /* #1DB954 Spotify green */
+    --primary-foreground: 0 0% 100%; /* #FFFFFF */
+
+    --secondary: 142 76% 48%; /* #1ED760 Lighter green */
+    --secondary-foreground: 0 0% 100%; /* #FFFFFF */
+
+    --muted: 0 0% 16%; /* #282828 */
+    --muted-foreground: 0 0% 70%; /* #B3B3B3 */
+
+    --accent: 142 72% 42%; /* #1DB954 */
+    --accent-foreground: 0 0% 100%; /* #FFFFFF */
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 0 0% 18%; /* #2E2E2E */
+    --input: 0 0% 18%; /* #2E2E2E */
+    --ring: 142 72% 42%; /* #1DB954 */
+
+    --radius: 0.5rem; /* Spotify uses more subtle rounded corners */
+  }
+
+  .light {
+    --background: 0 0% 100%; /* #FFFFFF */
+    --foreground: 0 0% 0%; /* #000000 */
+
+    --card: 0 0% 98%; /* #FAFAFA */
+    --card-foreground: 0 0% 0%; /* #000000 */
+
+    --popover: 0 0% 100%; /* #FFFFFF */
+    --popover-foreground: 0 0% 0%; /* #000000 */
+
+    --primary: 142 72% 42%; /* #1DB954 Spotify green */
+    --primary-foreground: 0 0% 100%; /* #FFFFFF */
+
+    --secondary: 142 76% 48%; /* #1ED760 Lighter green */
+    --secondary-foreground: 0 0% 100%; /* #FFFFFF */
+
+    --muted: 0 0% 96%; /* #F5F5F5 */
+    --muted-foreground: 0 0% 45%; /* #737373 */
+
+    --accent: 142 72% 42%; /* #1DB954 */
+    --accent-foreground: 0 0% 100%; /* #FFFFFF */
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 0 0% 90%; /* #E5E5E5 */
+    --input: 0 0% 90%; /* #E5E5E5 */
+    --ring: 142 72% 42%; /* #1DB954 */
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    background: linear-gradient(
+      135deg,
+      hsl(240, 10%, 3.9%) 0%,
+      hsl(263.4, 70%, 10%) 100%
+    );
+  }
+}
+
+@layer components {
+  .gradient-text {
+    @apply font-bold;
+    background: linear-gradient(
+      to right,
+      hsl(263.4, 70%, 50.4%),
+      hsl(217.2, 91.2%, 59.8%)
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .gradient-bg {
+    background: linear-gradient(
+      135deg,
+      hsl(263.4, 70%, 20%),
+      hsl(217.2, 91.2%, 30%)
+    );
+  }
+
+  .card-hover {
+    @apply transition-all duration-200;
+    &:hover {
+      @apply shadow-lg transform -translate-y-1;
+    }
+  }
+
+  .music-wave {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2px;
+    height: 20px;
+  }
+
+  .music-wave-bar {
+    @apply bg-primary;
+    width: 4px;
+    border-radius: 2px;
+    animation: wave 1.5s ease-in-out infinite;
+  }
+
+  .music-wave-bar:nth-child(2) {
+    animation-delay: 0.2s;
+  }
+
+  .music-wave-bar:nth-child(3) {
+    animation-delay: 0.4s;
+  }
+
+  .music-wave-bar:nth-child(4) {
+    animation-delay: 0.6s;
+  }
+
+  .music-wave-bar:nth-child(5) {
+    animation-delay: 0.8s;
+  }
+
+  @keyframes wave {
+    0%,
+    100% {
+      height: 8px;
+    }
+    50% {
+      height: 20px;
+    }
+  }
+}

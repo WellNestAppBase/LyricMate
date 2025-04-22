@@ -1,0 +1,28 @@
+import { Suspense } from "react";
+import { useRoutes, Routes, Route } from "react-router-dom";
+import Home from "./components/home";
+import UserProfilePage from "./components/UserProfilePage";
+import routes from "tempo-routes";
+
+function App() {
+  // For tempo routes
+  const tempoRoutes = import.meta.env.VITE_TEMPO === "true" ? useRoutes(routes) : null;
+  
+  return (
+    <Suspense fallback={<p>Loading...</p>}>
+      {tempoRoutes}
+      
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/profile" element={<UserProfilePage />} />
+
+        {/* Add this before any catchall route */}
+        {import.meta.env.VITE_TEMPO === "true" && (
+          <Route path="/tempobook/*" element={null} />
+        )}
+      </Routes>
+    </Suspense>
+  );
+}
+
+export default App;
