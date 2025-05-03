@@ -2,7 +2,7 @@ import React from "react";
 import { Button } from "../ui/button";
 import { Card, CardContent } from "../ui/card";
 import { Input } from "../ui/input";
-import { Mic, Music, Keyboard, ArrowLeft } from "lucide-react";
+import { Mic, Music, Keyboard, ArrowLeft, MusicNote } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
 export default function SongSearchPage() {
