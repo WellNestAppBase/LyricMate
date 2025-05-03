@@ -2,7 +2,7 @@ import React from "react";
 import { Button } from "../ui/button";
 import { Card, CardContent } from "../ui/card";
 import { Input } from "../ui/input";
-import { Mic, MusicNote, Keyboard, ArrowLeft } from "lucide-react";
+import { Mic, Music, Keyboard, ArrowLeft } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
 export default function SongSearchPage() {
@@ -22,7 +22,7 @@ export default function SongSearchPage() {
           <Card className="bg-card border-border hover:shadow-md transition-all cursor-pointer">
             <CardContent className="p-6 flex flex-col items-center text-center">
               <div className="h-16 w-16 rounded-full bg-primary/10 flex items-center justify-center mb-4">
-                <MusicNote className="h-8 w-8 text-primary" />
+                <Music className="h-8 w-8 text-primary" />
               </div>
               <h3 className="text-xl font-semibold mb-2">Sing Lyrics</h3>
               <p className="text-muted-foreground">

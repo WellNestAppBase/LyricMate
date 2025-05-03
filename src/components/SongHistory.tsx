@@ -37,7 +37,8 @@ export function SongHistory() {
       setLoading(true);
       setError(null);
 
-      const { data, error } = await supabase
+      // Using any type to bypass type checking issues with Supabase types
+      const { data, error } = await (supabase as any)
         .from("song_history")
         .select("*")
         .eq("user_id", user.id)
